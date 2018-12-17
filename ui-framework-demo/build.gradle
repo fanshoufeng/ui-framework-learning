@@ -25,7 +25,9 @@ repositories {
 
 
 dependencies {
-	implementation('org.springframework.boot:spring-boot-starter-web')
+	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	implementation("org.webjars:webix:5.2.0")
+	implementation("org.webjars:webjars-locator:0.31")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
