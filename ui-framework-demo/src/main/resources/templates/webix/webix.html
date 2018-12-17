@@ -3,8 +3,14 @@
 <head> 
     <title th:text="${name} + ' Demo'" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/webjars/webix/webix.css" />
+    <script src="/webjars/webix/webix.js"></script>
 </head>
-<body>
-    <p th:text="'Welcom to ' + ${name} + '!'" />
-</body>
+	<body>
+	    <p th:text="'Welcom to ' + ${name} + '!'" />
+	    <div style="margin:20px 0;"></div>
+	    <div id="testA" style='height:300px'></div>
+		<div id="paging_here"></div>
+		<script type="text/javascript" src="js/webix/grid.js"></script>
+	</body>
 </html>
