@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,6 @@ public class DataServiceImpl implements IDataService {
 	@Override
 	public Map<String, Object> list(int page, int pageSize) {
 		Map<String, Object> result = new HashMap<>();
-		
         List<Data> list = new ArrayList<>();
         
         String cmcustCode,
@@ -37,22 +37,23 @@ public class DataServiceImpl implements IDataService {
         if (pageSize * page > total) {
         	forSize = total - pageSize * (page - 1);
         }
-        for (int i = 1; i <= forSize; i++) {
-        	number = page + i;
+        Random random = new Random();
+        for (int i = 0; i < forSize; i++) {
+        	number = random.nextInt(100);
         	cmcustStatus = "活动";
         	cmcustPhone = "";
         	if (i % 2 == 0) {
         		cmcustCode = "BJ000" + number;
-        		cmcustName = "北京客户000" + number;
-        		cmcustManager = "王五" + number;
+        		cmcustName = "北京客户 " + number;
+        		cmcustManager = "王五";
         		cmcustGrpcode = "北京客户";
         		cmcustParentname = "";
         		cmcustCurid = "CNY";
         		cmcustAddr01 = "北京市xxx";
         	} else {
         		cmcustCode = "SH000" + number;
-        		cmcustName = "上海客户000" + number;
-        		cmcustManager = "张三" + number;
+        		cmcustName = "上海客户 " + number;
+        		cmcustManager = "张三";
         		cmcustGrpcode = "上海客户";
         		cmcustParentname = "";
         		cmcustCurid = "USD";
