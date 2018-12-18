@@ -32,7 +32,12 @@ public class DataServiceImpl implements IDataService {
         	cmcustPhone,
         	cmcustAddr01;
         int number;
-        for (int i = 1; i <= pageSize; i++) {
+        int total = 28;
+        int forSize = pageSize;
+        if (pageSize * page > total) {
+        	forSize = total - pageSize * (page - 1);
+        }
+        for (int i = 1; i <= forSize; i++) {
         	number = page + i;
         	cmcustStatus = "活动";
         	cmcustPhone = "";
@@ -56,19 +61,8 @@ public class DataServiceImpl implements IDataService {
         	list.add(new Data(cmcustCode, cmcustName, cmcustStatus, cmcustManager, cmcustGrpcode, cmcustParentname, cmcustCurid, cmcustPhone, cmcustAddr01));
         }
         
-//        list.add(new Data("EST-1", "FI-SW-01", "Koi", 10.00, "P", 36.50, "Large"));
-//        list.add(new Data("EST-10", "K9-DL-01", "Dalmation", 12.00, "P", 18.50, "Spotted Adult Female"));
-//        list.add(new Data("EST-11", "RP-SN-01", "Rattlesnake", 12.00, "P", 38.50, "Venomless"));
-//        list.add(new Data("EST-12", "RP-SN-01", "Rattlesnake", 12.00, "P", 26.50, "Rattleless"));
-//        list.add(new Data("EST-13", "RP-LI-02", "Iguana", 12.00, "P", 35.50, "Green Adult"));
-//        list.add(new Data("EST-14", "FL-DSH-01", "Manx", 12.00, "P", 158.50, "Tailless"));
-//        list.add(new Data("EST-15", "FL-DSH-01", "Manx", 12.00, "P", 83.50, "With tail"));
-//        list.add(new Data("EST-16", "FL-DLH-02", "Persian", 12.00, "P", 23.50, "Adult Female"));
-//        list.add(new Data("EST-17", "FL-DLH-02", "Persian", 12.00, "P", 89.50, "Adult Male"));
-//        list.add(new Data("EST-18", "AV-CB-01", "Amazon Parrot", 92.00, "P", 63.50, "Adult Male"));
-        
         result.put("rows", list);
-        result.put("total", 28);
+        result.put("total", total);
 		return result;
 	}
 
