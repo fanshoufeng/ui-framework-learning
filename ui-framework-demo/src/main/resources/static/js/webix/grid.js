@@ -50,7 +50,10 @@ webix.ready(function(){
 		],
 		select:"cell",
 		autowidth:true,
+		autoheight:true,
+		datafetch:10,
 		pager:{
+			template:"{common.first()} {common.prev()} {common.pages()} {common.next()} {common.last()}",
 			container:"paging_here",
 			size:10,
 			group:5
