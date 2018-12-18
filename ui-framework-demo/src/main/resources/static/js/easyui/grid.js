@@ -1,6 +1,5 @@
 $(function(){
 	$('#dg').datagrid({
-	    rownumbers:true,
 	    pagination:true,
 	    striped:true,
 	    singleSelect:true,
