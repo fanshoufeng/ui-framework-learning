@@ -1,3 +1,7 @@
+function openEntry(cmcustCode) {
+	$$("window").show();
+};
+
 webix.ready(function(){
 	grida = webix.ui({
 		container:"testA",
@@ -13,7 +17,7 @@ webix.ready(function(){
 	    	template:function(obj) {
 	    		var cmcustName = obj.cmcustName;
 	    		if (cmcustName) {
-					return '<a href="javascript:;" onclick="return false;">'+cmcustName+'</a>';
+					return '<a href="javascript:;" onclick=openEntry("' + obj.cmcustCode + '")>'+cmcustName+'</a>';
 				} else {
 					return cmcustName;
 				}
@@ -59,5 +63,16 @@ webix.ready(function(){
 			group:5
 		},
 		url:"webix/list"
-	});	
+	});
+	
+	webix.ui({
+	  view:"window",
+	  id:"window",
+	  position:"center",
+	  modal:true,
+	  head:"客户明细",
+	  body:{
+	    template:"客户明细界面未实现"
+	  }
+	});
 });

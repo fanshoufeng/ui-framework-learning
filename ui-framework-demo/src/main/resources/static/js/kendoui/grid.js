@@ -1,3 +1,7 @@
+function openEntry(cmcustCode) {
+	$("#window").data("kendoWindow").center().open();
+};
+
 $(function(){
 	$("#grid").kendoGrid({
         dataSource: {
@@ -29,7 +33,7 @@ $(function(){
 	    	template: function(dataItem) {
 	    		var cmcustName = dataItem.cmcustName;
 	    		if (cmcustName) {
-					return '<a href="javascript:;" onclick="return false;">'+cmcustName+'</a>';
+					return '<a href="javascript:;" onclick=openEntry("' + dataItem.cmcustCode + '")>'+cmcustName+'</a>';
 				} else {
 					return cmcustName;
 				}
@@ -63,5 +67,22 @@ $(function(){
 	    	title:'地址',
 	    	width:190
         }]
+    });
+    
+    $("#window").kendoWindow({
+        width: 500,
+		height: 150,
+        title: "客户明细",
+        visible: false,
+        modal: true,
+        actions: [
+            "Pin",
+            "Minimize",
+            "Maximize",
+            "Close"
+        ],
+        content: {
+        	template: '客户明细界面未实现'
+        }
     });
 });

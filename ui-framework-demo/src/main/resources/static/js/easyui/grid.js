@@ -59,23 +59,9 @@ $(function(){
 	
 	$('#win').window({
 		title: '客户明细',
-//	    width:'100%',
 		width: 500,
 		height: 150,
 	    modal:true,
 	    closed:true
 	});
-	
-	/*$('#cmcustCode').textbox({
-		label: '客户编号:',
-		labelWidth: 100,
-		width: '25%',
-		disabled: true
-	});
-	$('#cmcustName').textbox({
-		label: '客户名:',
-		labelWidth: 100,
-		width: '25%',
-		disabled: true
-	});*/
-})
+});
