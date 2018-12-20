@@ -8,8 +8,8 @@ import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.model.Data;
 import com.example.demo.service.IDataService;
-import com.example.demo.ui.model.Data;
 
 @Service
 public class DataServiceImpl implements IDataService {
